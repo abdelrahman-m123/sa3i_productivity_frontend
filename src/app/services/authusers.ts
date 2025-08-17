@@ -9,12 +9,12 @@ import { jwtDecode } from "jwt-decode";
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private URL = "http://localhost:3000/users/login";
+  private URL = "http://localhost:3000";
 
   user = new BehaviorSubject<UserModel | null>(null);
 
   login(email: string, password: string) {
-    return this.http.post<any>(this.URL, { email, password }).pipe(
+    return this.http.post<any>(`${this.URL}/users/login`, { email, password }).pipe(
       map((response) => {
         if (response.token) {
           const decoded = jwtDecode<any>(response.token);
@@ -79,4 +79,28 @@ export class AuthService {
 
     return throwError(() => errorResponse);
   }
+
+  signup(newUser: any) {
+  return this.http.post<any>(`${this.URL}/users/signup`, newUser).pipe(
+    map((response) => {
+      if (response.token) {
+        const decoded = jwtDecode<any>(response.token);
+        const expirationDate = new Date(decoded.exp * 1000);
+        const loggedInUser = new UserModel(
+          decoded.email,
+          decoded.id,
+          response.token,
+          expirationDate
+        );
+        this.user.next(loggedInUser);
+        localStorage.setItem("userData", JSON.stringify(loggedInUser));
+
+        return response.data.user;
+      } else {
+        throw new Error('Token not found in response');
+      }
+    }),
+    catchError(this.handleError)
+  );
+}
 }
