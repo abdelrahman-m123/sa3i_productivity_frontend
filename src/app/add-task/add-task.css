@@ -22,49 +22,75 @@ header .title {
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
-/* Input field */
-.card input[type="text"] {
+/* General input styles (text, date, number, textarea, select) */
+.card input[type="text"],
+.card input[type="date"],
+.card input[type="number"],
+.card textarea,
+.card select {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.7rem 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 0.8rem;
+  font-family: inherit;
 }
 
 /* Input focus */
-/* Input field */
-.card input[type="text"] {
-  width: 100%;              /* take full available width */
-  box-sizing: border-box;   /* include padding in width */
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  margin-bottom: 0.8rem;    /* spacing from error or button */
-}
-
-/* Input focus */
-.card input[type="text"]:focus {
+.card input[type="text"]:focus,
+.card input[type="date"]:focus,
+.card input[type="number"]:focus,
+.card textarea:focus,
+.card select:focus {
   border-color: #007bff;
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
   outline: none;
   margin-bottom: 0.4rem;
 }
 
+/* Textarea tweak */
+.card textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Checkbox field */
+.card input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+}
+.card .checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Labels */
 label {
+  display: block;
   margin-bottom: 0.4rem;
   font-weight: 600;
   color: #555;
 }
-small {
-  color: red !important;
+
+/* Error message */
+.card small {
+  display: block;
+  margin-top: -0.3rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: #d9534f;
 }
 
-/* Submit button (aligned with input) */
+/* Submit button */
 button[type="submit"] {
   width: 100%;
   padding: 0.75rem;
@@ -79,14 +105,6 @@ button[type="submit"] {
   transition: background 0.2s ease;
 }
 
-/* Error message */
-.card small {
-  display: block;
-  margin-top: 0.4rem;
-  font-size: 0.9rem;
-  color: #d9534f;
-}
-/* Submit button */
 /* Button hover */
 button[type="submit"]:hover:not(:disabled) {
   background: #0056b3;
