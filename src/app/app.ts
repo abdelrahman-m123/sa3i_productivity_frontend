@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { Signup } from './signup/signup';
 import { AddTask } from './add-task/add-task';
+import { Tasklist } from './tasklist/tasklist';
+import { Header } from './header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Signup, AddTask],
+  imports: [Login, Signup, AddTask, Tasklist, Header,RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

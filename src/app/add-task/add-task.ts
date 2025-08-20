@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Task } from '../models/task';
+import { TaskService } from '../services/usertasks';
 
 
 @Component({
@@ -10,8 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './add-task.css'
 })
 export class AddTask {
-   addTaskForm !: FormGroup;
-
+  addTaskForm !: FormGroup;
+  newTask!: Task;
+  myService = inject(TaskService);
   ngOnInit() {
     this.addTaskForm = new FormGroup({
       title: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
@@ -29,8 +32,25 @@ export class AddTask {
       console.log(this.addTaskForm);
       
       if (this.addTaskForm.invalid){
-        this.addTaskForm.markAllAsTouched;
+        this.addTaskForm.markAllAsTouched();
+        console.log('invalid');
+        
         return
+      }else{
+        const rawTask = this.addTaskForm.value;
+
+  
+      this.newTask = Object.fromEntries(
+        Object.entries(rawTask).filter(([_, v]) => v != null)
+      ) as unknown as Task;
+
+      this.myService.addTask(this.newTask).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+    });
+        console.log(this.newTask);
+        
       }
       
     }

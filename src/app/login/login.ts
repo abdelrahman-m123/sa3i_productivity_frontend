@@ -32,4 +32,22 @@ export class Login {
       },
     });
   }
+
+  testlogin() {
+      const { email, password } ={
+    email: "test@example.com",
+    password: "password123"
+  };
+
+    this.authService.login(email, password).subscribe({
+      next: () => {
+        this.loading = false;
+        this.loginForm.reset();
+      },
+      error: (err) => {
+        this.loading = false;
+        this.serverError = err.message;
+      },
+    });
+  }
 }

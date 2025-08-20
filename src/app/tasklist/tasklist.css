@@ -1,0 +1,103 @@
+/* Page Title */
+h2.title {
+  text-align: center;
+  margin: 1rem 0;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Grid layout for tasks */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 1rem;
+}
+
+/* Task card */
+.task-card {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Task info */
+.task-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-info .status {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.task-info p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Priority colors */
+.task-info span {
+  font-weight: bold;
+}
+
+.task-info span.status {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.task-info span.completed {
+  color: #28a745;
+}
+
+.task-info span.pending {
+  color: #d9534f;
+}
+
+/* Buttons */
+button {
+  padding: 0.6rem 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Group action buttons */
+.btn-group {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+}

@@ -1,0 +1,19 @@
+/* Center the component on the page */
+.component-wrapper {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  min-height: 100vh;         /* take full screen height */
+  background: #f4f6f8;       /* light background for contrast */
+}
+
+/* Style the card itself */
+.component-card {
+  width: 100%;
+  max-width: 500px;          /* control how wide the card is */
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}

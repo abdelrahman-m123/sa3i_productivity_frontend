@@ -35,6 +35,7 @@
     <button type="submit" [disabled]="loginForm.invalid || loading">
       {{ loading ? 'Signing in...' : 'Login' }}
     </button>
+    <button (click)="testlogin()">test login</button>
 
     @if (serverError) {
     <p class="server-error">{{ serverError }}</p>
