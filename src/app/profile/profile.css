@@ -1,0 +1,34 @@
+.movie-img {
+  max-width: 200px;     /* control size */
+  max-height: 200px;    /* prevent it from being too tall */
+  width: auto;          /* keeps image ratio */
+  height: auto;         
+  border-radius: 10px;
+  margin-top: 0.8rem;
+  display: block;
+  margin-left: auto;    /* center horizontally */
+  margin-right: auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Hover effect for image */
+.movie-img:hover {
+  transform: scale(1.03);
+}
+
+/* Name (h3) same style as task titles */
+.task-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Email (description) */
+.task-info .description {
+  margin: 0.6rem 0;
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+}

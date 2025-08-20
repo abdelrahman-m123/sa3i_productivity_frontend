@@ -11,7 +11,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private URL = "http://localhost:3000";
 
-  user = new BehaviorSubject<UserModel | null>(null);
+  user = new BehaviorSubject<any>(null);
 
   login(email: string, password: string) {
     return this.http.post<any>(`${this.URL}/users/login`, { email, password }).pipe(
@@ -20,16 +20,17 @@ export class AuthService {
           const decoded = jwtDecode<any>(response.token);
           const expirationDate = new Date(decoded.exp * 1000);
 
-          const loggedInUser = new UserModel(
-            decoded.email,
-            decoded.id,
-            response.token,
-            expirationDate
-          );
-
+          const loggedInUser = {
+            email:response.data.user.email,
+            id: decoded.id,
+            _token: response.token,
+            expirationDate: expirationDate,
+            photo: response.data.user.photo,
+            name: response.data.user.name
+          };
           this.user.next(loggedInUser);
           localStorage.setItem("userData", JSON.stringify(loggedInUser));
-          console.log(response);
+          console.log(localStorage.getItem("userData"));
           
           return response.data.user;
         } else {
@@ -86,12 +87,14 @@ export class AuthService {
       if (response.token) {
         const decoded = jwtDecode<any>(response.token);
         const expirationDate = new Date(decoded.exp * 1000);
-        const loggedInUser = new UserModel(
-          decoded.email,
-          decoded.id,
-          response.token,
-          expirationDate
-        );
+        const loggedInUser = {
+            email:response.data.user.email,
+            id: decoded.id,
+            _token: response.token,
+            expirationDate: expirationDate,
+            photo: response.data.user.photo,
+            name: response.data.user.name
+          };
         this.user.next(loggedInUser);
         localStorage.setItem("userData", JSON.stringify(loggedInUser));
 
