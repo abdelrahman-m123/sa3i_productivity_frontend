@@ -1,0 +1,117 @@
+/* Container */
+.container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Header title */
+header .title {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Card wrapper */
+.card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* General input styles (text, date, number, textarea, select) */
+.card input[type="text"],
+.card input[type="date"],
+.card input[type="number"],
+.card textarea,
+.card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 0.8rem;
+  font-family: inherit;
+}
+
+/* Input focus */
+.card input[type="text"]:focus,
+.card input[type="date"]:focus,
+.card input[type="number"]:focus,
+.card textarea:focus,
+.card select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  outline: none;
+  margin-bottom: 0.4rem;
+}
+
+/* Textarea tweak */
+.card textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Checkbox field */
+.card input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+}
+.card .checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Error message */
+.card small {
+  display: block;
+  margin-top: -0.3rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: #d9534f;
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Button hover */
+button[type="submit"]:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+/* Disabled button */
+button[type="submit"]:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}

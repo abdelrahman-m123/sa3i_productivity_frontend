@@ -5,10 +5,11 @@ import { Signup } from './signup/signup';
 import { AddTask } from './add-task/add-task';
 import { Tasklist } from './tasklist/tasklist';
 import { Header } from './header/header';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Signup, AddTask, Tasklist, Header,RouterOutlet],
+  imports: [Login, Signup, AddTask, Tasklist, Header,RouterOutlet, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

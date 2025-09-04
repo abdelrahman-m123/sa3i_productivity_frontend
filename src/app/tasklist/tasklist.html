@@ -12,6 +12,15 @@
   <app-add-task></app-add-task>
 </div>
 
+<div *ngIf="showUpdateTask">
+    <button class="add-btn" (click)="toggleUpdateTask()">
+  Close
+</button>
+
+  <app-update-task></app-update-task>
+</div>
+
+
 <div class="task-grid">
 
   @for (task of tasks; track task._id; let i = $index) {

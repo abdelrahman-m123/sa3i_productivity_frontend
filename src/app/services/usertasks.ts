@@ -51,7 +51,9 @@ export class TaskService {
   }
   
 
-  updateTask(taskId: string, updatedData: any): Observable<any> {
+  updateTask(taskId: any, updatedData: any): Observable<any> {
+    console.log(taskId);
+    
     const userData = JSON.parse(localStorage.getItem("userData") || '{}');
     const token = userData?._token;
 

@@ -1,0 +1,15 @@
+/* Plain text footer */
+.site-footer {
+  background: #f4f6f8;   /* match page background */
+  padding: 1rem 0;
+  border-top: 1px solid #ccc;  /* softer divider */
+  margin-top: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;   /* slightly darker for readability */
+}
