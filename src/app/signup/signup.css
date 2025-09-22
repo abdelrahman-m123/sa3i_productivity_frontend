@@ -44,7 +44,7 @@
 
 /* Input focus */
 .field input:focus {
-  border-color: #007bff;
+  border-color: #005cbb;
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
   outline: none;
 }
@@ -82,7 +82,7 @@
 button {
   width: 100%;
   padding: 0.75rem;
-  background: #007bff;
+  background: #005cbb;
   color: white;
   border: none;
   border-radius: 6px;

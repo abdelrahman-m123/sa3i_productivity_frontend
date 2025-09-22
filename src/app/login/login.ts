@@ -1,6 +1,7 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from "@angular/forms";
 import { AuthService } from "../services/authusers";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   imports: [FormsModule],
@@ -12,7 +13,7 @@ export class Login {
   serverError = "";
 
   private authService = inject(AuthService);
-
+  private router = inject(Router)
   @ViewChild("loginForm") loginForm!: NgForm;
 
   onSubmit() {
@@ -25,6 +26,7 @@ export class Login {
       next: () => {
         this.loading = false;
         this.loginForm.reset();
+        this.router.navigate(["/tasks"]);
       },
       error: (err) => {
         this.loading = false;
@@ -43,6 +45,7 @@ export class Login {
       next: () => {
         this.loading = false;
         this.loginForm.reset();
+        this.router.navigate(["/tasks"]);
       },
       error: (err) => {
         this.loading = false;

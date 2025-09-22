@@ -48,7 +48,7 @@ header .title {
 .card input[type="number"]:focus,
 .card textarea:focus,
 .card select:focus {
-  border-color: #007bff;
+  border-color: #005cbb;
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
   outline: none;
   margin-bottom: 0.4rem;
@@ -95,7 +95,7 @@ button[type="submit"] {
   width: 100%;
   padding: 0.75rem;
   margin-top: 0.5rem;
-  background: #007bff;
+  background: #005cbb;
   color: white;
   border: none;
   border-radius: 6px;

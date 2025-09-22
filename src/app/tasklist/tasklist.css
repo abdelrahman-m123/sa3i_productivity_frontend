@@ -5,18 +5,29 @@ h2.title {
   color: #333;
   font-family: Arial, sans-serif;
 }
+.header-row {
+  display: flex;
+  align-items: center;      /* vertically center */
+  justify-content: space-between; /* pushes button to the right */
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0;  /* remove default margin */
+}
 
 /* Grid layout for tasks */
 .task-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 15px;              /* space between items */
   padding: 1rem;
 }
 
 /* Task card */
 .task-card {
   max-width: 450px;
+  min-width: 250px;
   margin: 0 auto;
   padding: 1.5rem;
   border-radius: 12px;
@@ -61,7 +72,7 @@ h2.title {
 
 .task-info span.status {
   font-weight: bold;
-  color: #007bff;
+  color: #005cbb;
 }
 
 .task-info span.completed {
@@ -73,27 +84,14 @@ h2.title {
 }
 
 /* Buttons */
-button {
+.update-btn {
   padding: 0.6rem 1rem;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
   font-size: 0.95rem;
-  font-weight: bold;
   cursor: pointer;
   text-align: center;
   transition: background 0.2s ease;
 }
 
-button:hover:not(:disabled) {
-  background: #0056b3;
-}
-
-button:disabled {
-  background: #aaa;
-  cursor: not-allowed;
-}
 
 /* Group action buttons */
 .btn-group {
@@ -101,3 +99,4 @@ button:disabled {
   display: flex;
   gap: 10px;
 }
+

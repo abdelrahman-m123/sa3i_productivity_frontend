@@ -17,3 +17,10 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: Arial, sans-serif;
 }
+
+app-footer{
+  bottom:0;
+  position: fixed;
+  right: 0;
+  left: 0;
+}

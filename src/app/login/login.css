@@ -41,7 +41,7 @@
 
 /* Input focus */
 .field input:focus {
-  border-color: #007bff;
+  border-color: #005cbb;
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
   outline: none;
 }
@@ -58,20 +58,10 @@
 button {
   width: 100%;
   padding: 0.75rem;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 /* Button hover */
-button:hover:not(:disabled) {
-  background: #0056b3;
-}
+
 
 /* Disabled button */
 button:disabled {

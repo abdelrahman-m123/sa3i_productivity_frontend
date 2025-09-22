@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { AddTask } from '../add-task/add-task';
 import { FormGroup } from '@angular/forms';
 import { UpdateTask } from '../update-task/update-task';
-
 @Component({
   selector: 'app-tasklist',
   imports: [CommonModule,AddTask,UpdateTask],
@@ -30,10 +29,12 @@ export class Tasklist {
   toggleAddTask() {
     this.showAddTask = !this.showAddTask;
     this.loadtasks();
+    this.ref.detectChanges();
   }
   toggleUpdateTask(){
     this.showUpdateTask = !this.showUpdateTask;
     this.loadtasks();
+    this.ref.detectChanges();
   }
 
 
@@ -46,7 +47,7 @@ export class Tasklist {
       next: (data) => {
         console.log(data);
         this.tasks = data;
-        this.ref.detectChanges()
+        this.ref.detectChanges();
       },
     });
   
@@ -63,6 +64,7 @@ export class Tasklist {
     // });
       localStorage.setItem("editId", id);
       this.showUpdateTask = true;
+      this.ref.detectChanges();
       this.loadtasks();
 
   }
@@ -71,6 +73,7 @@ export class Tasklist {
       next: (data) => {
         console.log(data);
         console.log(index);
+        this.ref.detectChanges();
         this.loadtasks();
       },
     });
