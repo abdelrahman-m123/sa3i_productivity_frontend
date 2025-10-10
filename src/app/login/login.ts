@@ -2,9 +2,10 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from "@angular/forms";
 import { AuthService } from "../services/authusers";
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, MatButtonModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
