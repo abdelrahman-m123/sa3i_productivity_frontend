@@ -1,26 +1,41 @@
 /* Page Title */
-h2.title {
-  text-align: center;
-  margin: 1rem 0;
-  color: #333;
-  font-family: Arial, sans-serif;
-}
 .header-row {
   display: flex;
-  align-items: center;      /* vertically center */
+  align-items: center; /* vertically center */
   justify-content: space-between; /* pushes button to the right */
   margin-bottom: 1rem;
 }
-
 .title {
-  margin: 0;  /* remove default margin */
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* align vertically */
+  gap: 1rem; /* space between h2 and button */
+  margin: 2rem;
+  color: #333;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 0.5rem;
+  font-family: Arial, sans-serif;
+  max-width: 250px;
+}
+.title button {
+  font-size: 0.85rem;
+}
+
+.title-button {
+  padding-left: 5rem;
+}
+
+.title h2 {
+  margin: 0; /* remove default margin for cleaner alignment */
 }
 
 /* Grid layout for tasks */
 .task-grid {
   display: flex;
   flex-direction: column; /* stack vertically */
-  gap: 15px;              /* space between items */
+  gap: 15px; /* space between items */
   padding: 1rem;
 }
 
@@ -85,18 +100,14 @@ h2.title {
 
 /* Buttons */
 .update-btn {
-  padding: 0.6rem 1rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-  text-align: center;
-  transition: background 0.2s ease;
+
 }
-
-
+.delete-btn {
+  
+}
 /* Group action buttons */
 .btn-group {
   margin-top: 1rem;
   display: flex;
   gap: 10px;
 }
-

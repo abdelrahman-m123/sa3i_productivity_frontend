@@ -1,16 +1,24 @@
-/* Center the component on the page */
-.component-wrapper {
+/* Makes the entire page take full height */
+.page-container {
   display: flex;
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically */
-  min-height: 100vh;         /* take full screen height */
-  background: #f4f6f8;       /* light background for contrast */
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f6f8;
 }
 
-/* Style the card itself */
+/* Expands to fill available space (so footer stays at bottom) */
+.content-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* top align your routed components */
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Optional styling for your card-like components */
 .component-card {
   width: 100%;
-  max-width: 500px;          /* control how wide the card is */
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
@@ -18,9 +26,9 @@
   font-family: Arial, sans-serif;
 }
 
-app-footer{
-  bottom:0;
-  position: fixed;
-  right: 0;
-  left: 0;
+/* Footer stays at the bottom of the page naturally (no fixed positioning) */
+app-footer {
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }

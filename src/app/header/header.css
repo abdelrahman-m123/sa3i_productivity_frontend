@@ -21,8 +21,8 @@
 /* Brand */
 .brand a {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #007bff;
+  font-weight: 600;
+  color: #005cbb;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -46,12 +46,12 @@
 }
 
 .nav a:hover {
-  color: #007bff;
+  color: #005cbb;
 }
 
 .nav a.active {
-  font-weight: bold;
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  font-weight: 600;
+  color: #005cbb;
+  border-bottom: 2px solid #005cbb;
   padding-bottom: 0.2rem;
 }

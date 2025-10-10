@@ -1,49 +1,49 @@
-<div class="container">
-  <header>
-    <div class="title"> Edit task</div>
-  </header>
+<h2 mat-dialog-title>Edit Task</h2>
 
-  <form aria-label="Task form" [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
-
+<mat-dialog-content>
+  <form aria-label="Task form" [formGroup]="addTaskForm" (ngSubmit)="onSubmit()" class="container">
     <!-- Title -->
-    <section class="card">
-      <label for="title">Title</label>
-      <input id="title" type="text" placeholder="Add task here" formControlName="title"/>
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
       @if (addTaskForm.get('title')?.invalid && addTaskForm.get('title')?.touched) {
-        <small>Add task title (min 3 characters)</small>
+      <small>Add task title (min 3 characters)</small>
       }
-    </section>
+    </mat-form-field>
 
     <!-- Description -->
-    <section class="card">
-      <label for="description">Description</label>
-      <textarea id="description" placeholder="Task description" formControlName="description"></textarea>
-    </section>
-
-    <!-- Completed -->
-    <section class="card">
-      <label for="completed">Completed</label>
-      <input id="completed" type="checkbox" formControlName="completed"/>
-    </section>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
 
     <!-- Priority -->
-    <section class="card">
-      <label for="priority">Priority</label>
-      <select id="priority" formControlName="priority">
-        <option value="" disabled selected>Select priority</option>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
-    </section>
+    <mat-form-field appearance="outline">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option value="low">Low</mat-option>
+        <mat-option value="medium">Medium</mat-option>
+        <mat-option value="high">High</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-    <!-- Category -->
-    <section class="card">
-      <label for="category">Category</label>
-      <input id="category" type="text" placeholder="Category (e.g., Work, Personal)" formControlName="category"/>
-    </section>
-
-    <!-- Submit -->
-    <button type="submit" class="btn primary">Save</button>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
   </form>
-</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button matButton mat-dialog-close>cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    [disabled]="addTaskForm.invalid"
+    (click)="onSubmit()"
+  >
+    Save
+  </button>
+
+</mat-dialog-actions>

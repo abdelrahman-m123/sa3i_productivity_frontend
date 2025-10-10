@@ -6,69 +6,89 @@ import { CommonModule } from '@angular/common';
 import { AddTask } from '../add-task/add-task';
 import { FormGroup } from '@angular/forms';
 import { UpdateTask } from '../update-task/update-task';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 @Component({
   selector: 'app-tasklist',
-  imports: [CommonModule,AddTask,UpdateTask],
+  imports: [CommonModule, AddTask, UpdateTask, MatDialogModule, MatButtonModule, MatIconModule],
   standalone: true,
   templateUrl: './tasklist.html',
-  styleUrl: './tasklist.css'
+  styleUrl: './tasklist.css',
 })
 
 export class Tasklist {
-   
-  myService = inject(TaskService)
+  myService = inject(TaskService);
   tasks: Task[] = [];
-  addTaskForm !: FormGroup;
- constructor( private ref: ChangeDetectorRef) {}
+  addTaskForm!: FormGroup;
+  constructor(private ref: ChangeDetectorRef, private dialog: MatDialog, private editDialog: MatDialog ) {}
 
   showAddTask = false;
   showUpdateTask = false; // toggle state
   editId!: string;
 
-
   toggleAddTask() {
-    this.showAddTask = !this.showAddTask;
-    this.loadtasks();
-    this.ref.detectChanges();
+    const dialogRef = this.dialog.open(AddTask, {
+      width: '500px',
+      disableClose: true, // optional
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Dialog result (new task):', result);
+        // refresh list, etc.
+        this.ref.detectChanges();
+        this.loadtasks();
+
+      }
+    });
   }
-  toggleUpdateTask(){
-    this.showUpdateTask = !this.showUpdateTask;
-    this.loadtasks();
-    this.ref.detectChanges();
+  toggleUpdateTask() {
+    
   }
 
-
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.loadtasks();
   }
 
-  loadtasks(){
-      this.myService.getTasks().subscribe({
+  loadtasks() {
+    this.myService.getTasks().subscribe({
       next: (data) => {
         console.log(data);
         this.tasks = data;
         this.ref.detectChanges();
       },
     });
-  
-    
   }
-    updateTask(id: string, index: number) {
+
+  updateTask(id: string, index: number) {
     // this.myService.updateTask(id, { title: 'Updated Title' }).subscribe({
     //   next: (data) => {
     //     console.log(data);
     //     console.log(index);
-        
+
     //     this.tasks[index] = data;
     //   },
     // });
-      localStorage.setItem("editId", id);
-      this.showUpdateTask = true;
-      this.ref.detectChanges();
-      this.loadtasks();
+    localStorage.setItem('editId', id);
 
+    const dialogRef = this.editDialog.open(UpdateTask, {
+      width: '500px',
+      disableClose: true, // optional
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Dialog result (new task):', result);
+        // refresh list, etc.
+        this.ref.detectChanges();
+        this.loadtasks();
+
+      }
+    });
   }
-    deleteTask(id: string, index: number) {
+
+  deleteTask(id: string, index: number) {
     this.myService.deleteTask(id).subscribe({
       next: (data) => {
         console.log(data);

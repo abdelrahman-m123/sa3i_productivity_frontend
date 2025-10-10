@@ -3,12 +3,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Task } from '../models/task';
 import { TaskService } from '../services/usertasks';
-import { Tasklist } from '../tasklist/tasklist';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
   selector: 'app-update-task',
-  imports: [ReactiveFormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule, MatDialogModule, MatButtonModule, MatIcon, MatSelectModule, MatFormFieldModule, MatInputModule ],
   templateUrl: './update-task.html',
   styleUrl: './update-task.css'
 })
@@ -16,6 +22,9 @@ export class UpdateTask {
   addTaskForm !: FormGroup;
   newTask!: Task;
   myService = inject(TaskService);
+  constructor(private dialogRef: MatDialogRef<UpdateTask>) {}
+
+  
   ngOnInit() {
     this.addTaskForm = new FormGroup({
       title: new FormControl(null),
@@ -49,6 +58,7 @@ export class UpdateTask {
       next: (data) => {
         console.log(data);
         console.log(localStorage.getItem("editId"));
+        this.dialogRef.close(data);
         
       },
     });
